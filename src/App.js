@@ -59,6 +59,11 @@ class App extends React.Component {
     })
   }
 
+  clearTask = () => {
+    this.setState({
+      todos: this.state.todos.filter(todo => todo.completed === false)
+    })
+  }
 
   render() {
     return (
@@ -72,7 +77,7 @@ class App extends React.Component {
           toggleTask={this.toggleTask}
         />
         <div>
-          <button onClick={this.completed} className='clear-btn'>Clear Completed</button>
+          <button onClick={this.clearTask} className='clear-btn'>Clear Completed</button>
         </div>
       </div>
 
