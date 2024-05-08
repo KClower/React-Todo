@@ -17,6 +17,9 @@ class TodoForm extends React.Component {
 
     submitHandler = (e) => {
         e.preventDefault();
+        if (this.state.todo === "") {
+            return
+        }
         this.props.addTodo(this.state.todo);
         this.setState({
             todo: "",
@@ -29,7 +32,7 @@ class TodoForm extends React.Component {
                 <input
                     type="text"
                     name="task"
-                    value={this.state.task}
+                    value={this.state.todo}
                     onChange={this.changeHandler}
                 />
                 <button>ADD</button>
